@@ -36,4 +36,10 @@ contract PunkyNFT is ERC1155 {
     function balanceOf(address from, uint256 id) override public view returns (uint256) {
         return super.balanceOf(from, id);
     }
+
+    // TODO
+    uint256 _equip = 0;
+    function equip(uint256 id) public {
+        _equip = id;
+    }
 }
