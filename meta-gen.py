@@ -1,7 +1,15 @@
+"""
+This script generates metadata files in `meta/` folder.
+Please create the directory first.
+---
+by FrozenArcher
+"""
+
 import json
 
 external_url = "https://punky-lab.github.io"
 gateway = "https://cyan-acute-python-533.mypinata.cloud/ipfs"
+folder_cid = "QmV4McU7smfMhbkRY4GG8wzSQ4Vgvd11jJFAdDuVzNTTA7"
 
 # uint256 public constant PunkyBase = 0
 # uint256 public constant HeadWhiteCap = 1
@@ -9,12 +17,12 @@ gateway = "https://cyan-acute-python-533.mypinata.cloud/ipfs"
 # uint256 public constant TailZebra = 3
 # uint256 public constant BodyBasin = 4
 
-cids = {
-    0: "QmbrM5AsRmah4dFiBhasG6fsXmXvB15VbqtdgdkxJR2j3M",
-    1: "QmUQzxHFSoDPN3MCrhhLqHP1LRtaj7xCAnAMhJRNeVMwaz",
-    2: "QmQNV3HQUKyAzF6cDwgpvXumMrfrasEk9KkMJJdDyeyi47",
-    3: "QmUjHMvznFMy2y2aR2NAfDNsDrZuSTPthCtmj7W6mMNsC8",
-    4: "QmfA5f949Y2EQyFY7PrUBzsfhR12pB5Ew8mfG4yFPD8SXW",
+filenames = {
+    0: "punky-base.svg",
+    1: "white-cap.svg",
+    2: "sparklab-necklace.svg",
+    3: "zebra-tail.svg",
+    4: "basin.svg",
 }
 
 names = {
@@ -39,7 +47,7 @@ if __name__ == "__main__":
         metadata = {
             "description": descs[i],
             "external_url": external_url,
-            "image": f"{gateway}/{cids[i]}",
+            "image": f"{gateway}/{folder_cid}/{filenames[i]}",
             "name": names[i],
         }
         with open(f"meta/{i}.json", "w") as f:
